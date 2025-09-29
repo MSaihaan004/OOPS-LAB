@@ -1,0 +1,106 @@
+//Electricity cut tracker
+#include <stdio.h>
+
+int main() {
+    char schedule[7][50] = {
+        "Mon: 6-8am, 7-9pm",
+        "Tue: 5-7am, 8-10pm",
+        "Wed: 6-8am, 7-9pm",
+        "Thu: 5-7am, 8-10pm",
+        "Fri: 6-8am, 7-9pm",
+        "Sat: 7-9am, 8-10pm",
+        "Sun: No power cuts"
+    };
+    
+    int day;
+    printf("Enter day number (1=Mon ... 7=Sun): ");
+    scanf("%d", &day);
+    
+    if(day >=1 && day <=7)
+        printf("Power cut schedule: %s\n", schedule[day-1]);
+    else
+        printf("Invalid input!\n");
+    
+    return 0;
+}
+
+
+//Weather based clothing suggestor:
+#include <iostream>
+using namespace std;
+
+int main() {
+    int temp;
+    cout << "Enter temperature in Celsius: ";
+    cin >> temp;
+
+    if(temp <= 0)
+        cout << "Wear heavy woolens, jackets, and boots.\n";
+    else if(temp <= 15)
+        cout << "Wear sweater and light jacket.\n";
+    else
+        cout << "Light clothes are fine.\n";
+    
+    return 0;
+}
+
+
+
+//Apple Orchard Profit Calculator
+#include <stdio.h>
+
+int main() {
+    int boxes;
+    float costPrice, sellingPrice, profit;
+    
+    printf("Enter number of apple boxes sold: ");
+    scanf("%d", &boxes);
+    printf("Enter cost price per box: ");
+    scanf("%f", &costPrice);
+    printf("Enter selling price per box: ");
+    scanf("%f", &sellingPrice);
+    
+    profit = (sellingPrice - costPrice) * boxes;
+    printf("Total Profit: %.2f\n", profit);
+    
+    return 0;
+}
+
+
+//Tourist Guide Helper
+#include <iostream>
+using namespace std;
+
+int main() {
+    int choice;
+    cout << "Select District:\n1. Srinagar\n2. Gulmarg\n3. Pahalgam\n";
+    cin >> choice;
+
+    switch(choice) {
+        case 1: cout << "Famous in Srinagar: Dal Lake, Mughal Gardens, Hazratbal.\n"; break;
+        case 2: cout << "Famous in Gulmarg: Skiing, Gondola, Meadows.\n"; break;
+        case 3: cout << "Famous in Pahalgam: Aru Valley, Betaab Valley, Lidder River.\n"; break;
+        default: cout << "Invalid choice!\n";
+    }
+
+    return 0;
+}
+
+
+//Winter Heating Expense Estimator
+#include <stdio.h>
+
+int main() {
+    int days;
+    float dailyCost, total;
+    
+    printf("Enter number of winter days: ");
+    scanf("%d", &days);
+    printf("Enter average daily heating cost (in INR): ");
+    scanf("%f", &dailyCost);
+    
+    total = days * dailyCost;
+    printf("Estimated Heating Expense: %.2f INR\n", total);
+    
+    return 0;
+}
