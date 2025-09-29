@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 int main() {
-    char schedule[7][50] = {
+    char schedule[50] = {
         "Mon: 6-8am, 7-9pm",
         "Tue: 5-7am, 8-10pm",
         "Wed: 6-8am, 7-9pm",
@@ -51,7 +51,7 @@ int main() {
 
 int main() {
     int boxes;
-    float costPrice, sellingPrice, profit;
+    float costP, sellingP, profit;
     
     printf("Enter number of apple boxes sold: ");
     scanf("%d", &boxes);
@@ -61,7 +61,7 @@ int main() {
     scanf("%f", &sellingPrice);
     
     profit = (sellingPrice - costPrice) * boxes;
-    printf("Total Profit: %.2f\n", profit);
+    printf("Total Profit: %f\n", profit);
     
     return 0;
 }
