@@ -104,3 +104,164 @@ int main() {
     
     return 0;
 }
+
+//Shop Billing System
+#include <iostream>
+using namespace std;
+
+struct Item {
+    string name;
+    float price;
+    int quantity;
+};
+
+int main() {
+    int n;
+    cout << "Enter number of items purchased: ";
+    cin >> n;
+
+    Item items[n];
+    float total = 0;
+
+    for(int i = 0; i < n; i++) {
+        cout << "\nEnter item name: ";
+        cin >> items[i].name;
+        cout << "Enter price: ";
+        cin >> items[i].price;
+        cout << "Enter quantity: ";
+        cin >> items[i].quantity;
+
+        total += items[i].price * items[i].quantity;
+    }
+
+    cout << "\n--- BILL RECEIPT ---\n";
+    cout << "Item\tQty\tPrice\tTotal\n";
+
+    for(int i = 0; i < n; i++) {
+        cout << items[i].name << "\t"
+             << items[i].quantity << "\t"
+             << items[i].price << "\t"
+             << items[i].price * items[i].quantity << endl;
+    }
+
+    cout << "\nGrand Total: Rs. " << total << endl;
+
+    return 0;
+}
+
+
+
+
+
+
+
+//Student Attendance Management
+#include <iostream>
+using namespace std;
+
+struct Student {
+    char name[50];
+    int totalClasses;
+    int attended;
+};
+
+int main() {
+    int n;
+    cout << "Enter number of students: ";
+    cin >> n;
+
+    Student s[n];
+
+    for (int i = 0; i < n; i++) {
+        cout << "\nEnter name of student " << i + 1 << ": ";
+        cin >> s[i].name;
+        cout << "Enter total classes: ";
+        cin >> s[i].totalClasses;
+        cout << "Enter classes attended: ";
+        cin >> s[i].attended;
+    }
+
+    cout << "\n--- Attendance Report ---\n";
+    for (int i = 0; i < n; i++) {
+        float percentage = (float)s[i].attended / s[i].totalClasses * 100;
+        cout << s[i].name << " - " << percentage << "% ";
+        if (percentage < 75)
+            cout << "(Shortage)\n";
+        else
+            cout << "(Good)\n";
+    }
+
+    return 0;
+}
+
+
+
+
+//Electricity Cut Tracker
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string days[7] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+    string schedule[7] = {
+        "6-8 AM, 7-9 PM",
+        "5-7 AM, 8-10 PM",
+        "6-8 AM, 7-9 PM",
+        "5-7 AM, 8-10 PM",
+        "6-8 AM, 7-9 PM",
+        "7-9 AM, 8-10 PM",
+        "No Power Cuts"
+    };
+
+    int choice;
+    do {
+        cout << "\n========= Electricity Cut Schedule Tracker =========";
+        cout << "\n1. View Weekly Schedule";
+        cout << "\n2. Check Power Cut for a Day";
+        cout << "\n3. Update a Day's Schedule";
+        cout << "\n4. Exit";
+        cout << "\nEnter your choice: ";
+        cin >> choice;
+
+        if (choice == 1) {
+            cout << "\n--- Weekly Power Cut Schedule ---\n";
+            for (int i = 0; i < 7; i++) {
+                cout << days[i] << ": " << schedule[i] << endl;
+            }
+        }
+        else if (choice == 2) {
+            int day;
+            cout << "\nEnter day number (1=Monday ... 7=Sunday): ";
+            cin >> day;
+            if (day >= 1 && day <= 7) {
+                cout << days[day - 1] << ": " << schedule[day - 1] << endl;
+            } else {
+                cout << "Invalid day number!\n";
+            }
+        }
+        else if (choice == 3) {
+            int day;
+            string newSchedule;
+            cout << "\nEnter day number (1=Monday ... 7=Sunday): ";
+            cin >> day;
+            cin.ignore();
+            if (day >= 1 && day <= 7) {
+                cout << "Enter new schedule for " << days[day - 1] << ": ";
+                getline(cin, newSchedule);
+                schedule[day - 1] = newSchedule;
+                cout << "✅ Schedule updated successfully!\n";
+            } else {
+                cout << "Invalid day number!\n";
+            }
+        }
+        else if (choice == 4) {
+            cout << "\nExiting program. Stay powered! ⚡\n";
+        }
+        else {
+            cout << "Invalid choice! Try again.\n";
+        }
+    } while (choice != 4);
+
+    return 0;
+}
